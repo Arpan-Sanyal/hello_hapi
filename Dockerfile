@@ -11,14 +11,6 @@ RUN npm install
 # copy the app
 COPY . .
 
-# Install the magic wrapper.
-ADD ./wrapdocker /usr/local/bin/wrapdocker
-RUN chmod +x /usr/local/bin/wrapdocker
-
-# Define additional metadata for our image.
-VOLUME /var/lib/docker
-CMD ["wrapdocker"]
-
 # expose port 3000 and start the app
 EXPOSE 3000
 CMD [ "npm", "start" ]
